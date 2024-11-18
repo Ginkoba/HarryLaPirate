@@ -1,0 +1,13 @@
+@echo off
+setlocal enabledelayedexpansion
+
+set "characters=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+set "username="
+
+for /l %%i in (1,1,10) do (
+    set /a "randomIndex=!random! %% 62"
+    for %%j in (!randomIndex!) do set "username=!username!!characters:~%%j,1!"
+)
+
+echo Generated username: %username%
+pause
